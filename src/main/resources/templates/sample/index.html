@@ -5,8 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h2 th:text="${name}"></h2>
-  <p th:text="${get}" />
-  <p th:text="${post}" />
-</body>
+	<textarea name="message" placeholder="polyℊonの経度緯度を入力" cols="50" rows="10" form="example"></textarea>
+
+	<form action="sample"  method="post" id="example">
+		<input type="submit" value="apply">
+	</form>
 </html>
