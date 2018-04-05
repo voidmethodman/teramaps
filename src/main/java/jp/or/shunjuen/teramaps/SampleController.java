@@ -16,16 +16,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-
 public class SampleController {
 
+    @RequestMapping(value = "/sample",method = RequestMethod.GET)
+    public String get() {
+    	return "sample/index";
+    }
+
     @RequestMapping(value = "/sample",method = RequestMethod.POST)
-    public String test(Model model,@RequestParam("message") String message) throws RuntimeException, IOException {
+    public String post(Model model,@RequestParam("message") String message) throws RuntimeException, IOException {
     	Logger logger = Logger.getLogger(SampleController.class.getName());
         logger.setLevel(Level.INFO);
 
         // ハンドラーを作成してロガーに登録
-        Handler handler = new FileHandler("C:\\Users\\kots\\Desktop\\latlng.log");
+        Handler handler = new FileHandler("C:/Users/kots/Desktop/latlng.log");
         logger.addHandler(handler);
 
         // フォーマッターを作成してハンドラーに登録
@@ -36,5 +40,6 @@ public class SampleController {
         logger.log(Level.INFO, message);
         return "sample/index";
     }
+
 
 }
